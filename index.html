@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vorer Alo</title>
+    <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="bg-light">
+    <div class="container">
+        <!-- navbar section start here -->
+        <section>
+            <nav class="navbar navbar-expand-lg bg-light">
+                <div class="container-fluid">
+                  <a class="navbar-brand fs-3" href="#">Vorer Alo</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li class="nav-item">
+                        <a class="navbar-brand" href="#">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="navbar-brand" href="#">Sports</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="navbar-brand" href="#">Gallary</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="navbar-brand" href="#">Archive</a>
+                      </li>
+                    </ul>
+                    <ul class="d-flex justify-content-end navbar-nav ">
+                        <li class="nav-item me-2">
+                            <a class="nav-link text-info bolder fw-bold fs-3" href="">News</a>
+                        </li>
+                        <li class="nav-item me-2">
+                            <a class="nav-link fs-3" href="">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <img class="rounded-pill border border-2 border-info nav-link p-0 m-1 profile" src="./assets/alill.jpg" alt="">
+                        </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+        </section>
+        <hr>
+        <section>
+            <div id="menu-list" class="d-flex flex-column flex-lg-row flex-md-row justify-content-between">
+            </div>
+        </section>
+        <section>
+            <div id="alert" class="pt-3">
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="d-flex flex-column flex-md-row flex-lg-row justify-content-center justify-content-md-between justify-content-lg-between">
+                <div class="text-center d-flex flex-row flex-md-row flex-lg-row justify-center">
+                    <P class=" fw-bolder text-center p-2 m-0" for="">Sort By View</P>
+                    <div>
+                        <select class="form-select" aria-label="Default select example">
+                        <option selected>Default</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-info fw-bold">Today's Pick</button>
+                    <button class="btn outline btn-outline-primary">Trading</button>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <script src="./js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+</html>
