@@ -36,10 +36,14 @@ const display = async () => {
 
 
 const newsdisplay = async (id) =>{
-    let url = `https://openapi.programming-hero.com/api/news/category/${id}`
-    const response = await fetch(url)
-    const data = await response.json()
-    return data.data
+    try{
+        let url = `https://openapi.programming-hero.com/api/news/category/${id}`
+        const response = await fetch(url)
+        const data = await response.json()
+        return data.data
+    }catch(err){
+        console.log(err)
+    }
 }
 
 
@@ -59,12 +63,12 @@ const allNewsDisplayCategory = async (event) =>{
     const data = await newsdisplay(event.target.id);
     if(data.length!=0){
         alertPart.innerHTML=`<div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Wow... ${data.length} News found!</strong> For more data, refress again
+        <strong>Wow... ${data.length} items found!</strong> in ${event.target.textContent}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>`
     }else{
         alertPart.innerHTML=`<div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>No Nows found!</strong> For more data, refress again
+        <strong>No items found!</strong> in ${event.target.textContent}, refress again
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>`
     }
@@ -166,6 +170,14 @@ const allNewsDisplay = async (id = "08") =>{
     })
 }
 
+const sortbyview = async (event) =>{
+    let newspart = document.getElementById('news_section')
+    const data = await newsdisplay(id);
+    data.sort(function(a, b){return b.total_view - a.total_view});
+    
+}
+
+
 const details= async (id)=>{
     let modalBody = document.getElementById('modal_body')
     modalBody.innerHTML=`<div class="d-flex justify-content-center">
@@ -214,7 +226,6 @@ const newsdetails = async (event)=>{
     </div>
    </div>`
 }
-
 
 display()
 
