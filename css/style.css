@@ -1,3 +1,8 @@
 .profile{
     height: 50px;
 }
+@media (max-width: 576px) { 
+    .test{
+        height: 700px;
+    }
+}

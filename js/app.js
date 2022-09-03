@@ -46,22 +46,18 @@ const newsdisplay = async () =>{
 const allNewsDisplay = async () =>{
     let newspart = document.getElementById('news_section')
     const data = await newsdisplay();
-    // console.log(data);
     data.map(data =>{
         const card_div = document.createElement("div");
-        card_div.classList.add('card','mb-3')
-        // console.log(data._id);
-        // console.log(data.title);
-    
-        card_div.innerHTML= `<div class="card mb-3">
-    <div class="row g-0">
+        card_div.classList.add('card','mb-3')    
+        card_div.innerHTML= `
+    <div class="row g-0 test">
       <div class="col-md-4 p-3">
-        <img src="${data.image_url}" class="img-fluid rounded" alt="">
+        <img src="${data.image_url}" class="img-fluid h-100 rounded" alt="">
       </div>
       <div class="col-md-8 position-relative">
         <div class="card-body">
           <h5 class="card-title">${data.title}</h5>
-          <p class="card-text">${data.details?.slice(0,250).concat("...")}
+          <p class="card-text">${data.details?.slice(0,300).concat("...")}
           </p>
         </div>
         <div class="w-100 bg-white py-2 position-absolute bottom-0 start-0 d-flex flex-wrap justify-content-between align-items-center">
@@ -85,33 +81,60 @@ const allNewsDisplay = async () =>{
               <div class="ps-4"><span class="fa-solid fa-star"></span> ${data?.rating?.number}
               </div>
               <div class="pe-3">
-                <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal" >Details</button>
+                <button class="btn btn-info" id="${data?._id}" onclick="newsdetails(event)" data-bs-toggle="modal" data-bs-target="#exampleModal" >Details</button>
               </div>
             </div>
           </div>
           
         </div>
-      </div>
-    </div>`
+      </div>`
 
         newspart.appendChild(card_div)
     })
 }
+
+const details= async (id)=>{
+    try{
+        let url=`https://openapi.programming-hero.com/api/news/${id}`
+        const response = await fetch(url)
+        const data = await response.json();
+        return data.data
+    }
+    catch(err){
+        let alert_section = document.getElementById('alert')
+        let text = `<div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Opss! sorry</strong> ${err}.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>`
+        alert_section.innerHTML =text
+    }    
+}
+
+const newsdetails = async (event)=>{
+    let id = event.target.id
+    const data2 = await details(id);
+    console.log(data2.details)
+    
+    let modalBody = document.getElementById('modal_body')
+    modalBody.innerHTML =`<div class="card mb-3">
+    <img src="" class="card-img-top" alt="">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>`
+}
+
+
+
+
 display()
 
 async function textfun(){
-    // const data = await newsdisplay();
-    const maxSpeed = {
-        car: 300, 
-        bike: 60, 
-        motorbike: 200, 
-        airplane: 1000,
-        helicopter: 400, 
-        rocket: 8 * 60 * 60
-    };
-    
-    const sortable = Object.entries(maxSpeed).sort(([,a],[,b]) => a-b).reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
-    
-    console.log(sortable);
+    const data = await newsdisplay();
+    // console.log(data);    
+    data.sort(function(a, b){return b.total_view - a.total_view});
+    console.log(data);
 }
 textfun();
