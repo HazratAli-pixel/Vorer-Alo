@@ -46,18 +46,20 @@ const newsdisplay = async () =>{
 const allNewsDisplay = async () =>{
     let newspart = document.getElementById('news_section')
     const data = await newsdisplay();
+    data.sort(function(a, b){return b.total_view - a.total_view});
+    // console.log(data.details.lenght)
     data.map(data =>{
         const card_div = document.createElement("div");
         card_div.classList.add('card','mb-3')    
-        card_div.innerHTML= `
+        card_div.innerHTML=`
     <div class="row g-0 test">
-      <div class="col-md-4 p-3">
+      <div class="col-sm-12 col-lg-4 p-3">
         <img src="${data.image_url}" class="img-fluid h-100 rounded" alt="">
       </div>
-      <div class="col-md-8 position-relative">
+      <div class="col-sm-12 col-lg-8 position-relative">
         <div class="card-body">
           <h5 class="card-title">${data.title}</h5>
-          <p class="card-text">${data.details?.slice(0,300).concat("...")}
+          <p class="card-text">${ (data.details).length >=500 ? data.details.slice(0,300).concat("..."):data.details}
           </p>
         </div>
         <div class="w-100 bg-white py-2 position-absolute bottom-0 start-0 d-flex flex-wrap justify-content-between align-items-center">
@@ -73,7 +75,7 @@ const allNewsDisplay = async () =>{
                 </div>
               </div>
               <div>
-                <h5 class="m-0 pe-4"><i class="fa-solid fa-eye"></i> ${data?.total_view}</h5>
+                <h5 class="m-0 pe-4"><i class="fa-solid fa-eye"></i> ${data?.total_view ==null || data?.total_view ==0? "NO View":data.total_view}</h5>
               </div>
             </div>
 
@@ -85,15 +87,20 @@ const allNewsDisplay = async () =>{
               </div>
             </div>
           </div>
-          
         </div>
+      </div>
       </div>`
-
         newspart.appendChild(card_div)
     })
 }
 
 const details= async (id)=>{
+    let modalBody = document.getElementById('modal_body')
+    modalBody.innerHTML=`<div class="d-flex justify-content-center">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>`
     try{
         let url=`https://openapi.programming-hero.com/api/news/${id}`
         const response = await fetch(url)
@@ -112,18 +119,17 @@ const details= async (id)=>{
 
 const newsdetails = async (event)=>{
     let id = event.target.id
-    const data2 = await details(id);
-    console.log(data2.details)
-    
     let modalBody = document.getElementById('modal_body')
+    const data2 = await details(id);    
+ 
     modalBody.innerHTML =`<div class="card mb-3">
-    <img src="" class="card-img-top" alt="">
+    <img src="${data2[0].image_url}" class="card-img-top" alt="">
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <h5 class="card-title">${data2[0].title}</h5>
+      <p class="card-text">${data2[0].details}</p>
       <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div>
-  </div>`
+   </div>`
 }
 
 
