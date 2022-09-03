@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vorer Alo</title>
+    <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/b6e439dc17.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-light">
+    <div class="container">
+        <!-- navbar section start here -->
+        <section>
+            <nav class="navbar navbar-expand-lg bg-light">
+                <div class="container-fluid">
+                  <a class="navbar-brand fs-3 fw-bolder" href="#">Vorer <span class="bg-info p-1 fw-bolder rounded-2">Alo</span></a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li class="nav-item">
+                        <a class="navbar-brand" href="index.html">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="navbar-brand" href="#">Sports</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="navbar-brand" href="#">Gallary</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="navbar-brand" href="#">Archive</a>
+                      </li>
+                    </ul>
+                    <ul class="d-flex justify-content-end navbar-nav ">
+                        <li class="nav-item me-2">
+                            <a class="nav-link fs-3" href="index.html">News</a>
+                        </li>
+                        <li class="nav-item me-2">
+                            <a class="text-decoration-underline nav-link text-info bolder fw-bold fs-3" href="blog.html">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <img class="rounded-pill border border-2 border-info nav-link p-0 m-1 profile" src="./assets/alill.jpg" alt="">
+                        </li>
+                    </ul>
+                  </div>
+                </div>
+            </nav>
+        </section>
+        <section>
+            <hr>
+           
+        </section>
+        <!-- blog section -->
+        <section>
+          <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6 pt-2 ">
+              <div class="card">
+                <img src="./assets/tamplate.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title fw-bolder">
+                    why need to use template string in javascript
+                  </h5>
+                  <p class="card-text">Template strings are a powerful feature of modern JavaScript released in ES6. It lets us insert/interpolate variables and expressions into strings without needing to concatenate like in older versions of JavaScript. It allows us to create strings that are complex and contain dynamic elements. Another great thing that comes with template strings are tags. Tags are functions that take a string and the decomposed parts of the string as parameters and are great for converting strings to different entities.</p>
+                  <p class="card-text">The syntax for creating template strings is by using backticks to delimit them. For example, we can write: This is a very simple example of a template string. All the content is constant and there are no variables or expressions in it. To add variables and or expressions to a string, we can do the following.</p>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6 pt-2 ">
+              <div class="card">
+                <img src="./assets/arroVSregu.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title fw-bolder">arrow function and normal function difference</h5>
+                  <p class="card-text">Arrow function — also called fat arrow function— is a new feature introduced in ES6 that is a more concise syntax for writing function expressions. While both regular JavaScript functions and arrow functions work in a similar manner, there are certain differences between them.</p>
+                  <p class="card-text">The arrow function example above allows a developer to accomplish the same result with fewer lines of code and approximately half the typing.
+                    Curly brackets aren’t required if only one expression is present. The above example can also be written like this:</p>
+                    <p class="card-text">If there’s only one argument, then the parentheses are not required either:</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6 pt-2 ">
+              <div class="card">
+                <img src="./assets/map.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title fw-bolder">Difference between map, filter, foreach and find </h5>
+                  <p class="card-text"><span class="fw-bolder">foreach() : </span>Foreach takes a callback function and run that callback function on each element of array one by one. <br> Basically forEach works as a traditional for loop looping over the array and providing you array elements to do operations on them.</p>
+                  <p class="card-text"><span class="fw-bolder">Filter() : </span>The main difference between forEach and filter is that forEach just loop over the array and executes the callback but filter executes the callback and check its return value. If the value is true element remains in the resulting array but if the return value is false the element will be removed for the resulting array.</p>
+                  <p class="card-text"><span class="fw-bolder">map() : </span>Map like filter & foreach takes a callback and run it against every element on the array but whats makes it unique is it generate a new array based on your existing array.</p>
+                  <p class="card-text m-0"><span class="fw-bolder">find() : </span>
+                  <ol>
+                    <li>The find() method returns the value of the first element that passes a test.</li>
+                    <li>The find() method executes a function for each array element.</li>
+                    <li>The find() method returns undefined if no elements are found.</li>
+                    <li>The find() method does not execute the function for empty elements</li>
+                  </ol>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6 pt-2 ">
+              <div class="card">
+                <img src="./assets/var.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title fw-bolder">Difference var let const</h5>
+                  <p class="card-text"><span class="fw-bolder">var : </span>Scope essentially means where these variables are available for use. var declarations are globally scoped or function/locally scoped. <br>
+                    The scope is global when a var variable is declared outside a function. This means that any variable that is declared with var outside a function block is available for use in the whole window. <br>
+                    var is function scoped when it is declared within a function. This means that it is available and can be accessed only within that function.</p>
+                  <p class="card-text"><span class="fw-bolder">let : </span>let is now preferred for variable declaration. It's no surprise as it comes as an improvement to var declarations. It also solves the problem with var that we just covered. Let's consider why this is so. <br>
+                    A block is a chunk of code bounded by {}. A block lives in curly braces. Anything within curly braces is a block. <br>
+                    So a variable declared in a block with let  is only available for use within that block. Let me explain this with an example:</p>
+                  <p class="card-text"><span class="fw-bolder">const : </span>Variables declared with the const maintain constant values. const declarations share some similarities with let declarations. <br>
+                    Like let declarations, const declarations can only be accessed within the block they were declared. <br> 
+                    This means that the value of a variable declared with const remains the same within its scope. It cannot be updated or re-declared. So if we declare a variable with const, we can neither do this:
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+    </div>
+
+             <!-- footer setion start here -->
+    <footer class="mt-5" style="background-color: rgb(0, 0, 0);">
+      <section class="container">
+        <div class="col-12 h-100 text-white p-5 mt-3">
+          <div class=" text-center">
+            <h1 style="font-family: 'Dela Gothic One', cursive;">Vorer Alo</h1>
+            <p class="m-1">সময়ের সাথে সবার আগে</p>
+            <p>Privacy Policy | Terms of use</p>
+          </div>
+          <!-- social Icon for all device. -->
+          <div class="text-center">
+            <a class=" p-2 icon text-white rounded bg-success p-2 bg-opacity-25" href="https://www.facebook.com/ali.fbads"><i class="fa-brands fa-facebook"></i></a>
+            <a class=" p-2 icon text-white rounded bg-success p-2 bg-opacity-25" href="https://twitter.com/"> <i class="fa-brands fa-twitter"></i></a>
+            <a class=" p-2 icon text-white rounded bg-success p-2 bg-opacity-25" href="https://web.whatsapp.com/"> <i class="fa-brands fa-whatsapp"></i></a>
+            <a class=" p-2 icon text-white rounded bg-success p-2 bg-opacity-25" href="https://www.youtube.com/"> <i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </section>
+    </footer>
+            <!-- footer setion ends here -->
+    <!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">News Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="modal_body">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <script src="./js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+</html>

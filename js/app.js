@@ -117,6 +117,7 @@ const allNewsDisplayCategory = async (event) =>{
       </div>` 
         newspart.appendChild(card_div)
     })
+    return data;
 }
 
 
@@ -170,12 +171,6 @@ const allNewsDisplay = async (id = "08") =>{
     })
 }
 
-const sortbyview = async (event) =>{
-    let newspart = document.getElementById('news_section')
-    const data = await newsdisplay(id);
-    data.sort(function(a, b){return b.total_view - a.total_view});
-    
-}
 
 
 const details= async (id)=>{
