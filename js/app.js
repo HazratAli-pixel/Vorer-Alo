@@ -1,23 +1,36 @@
 const category = async ()=>{
-    const response = await fetch("https://openapi.programming-hero.com/api/news/categories");
-    const categorylist = await response.json();
-    // console.log(category);
-    // console.log(category.data.news_category[1].category_name);
-    return categorylist;
+    try{
+        const response = await fetch("https://openapi.programming-hero.com/api/news/categories");    
+        const categorylist = await response.json();
+        return categorylist;
+    }
+    catch(err){
+        let alert_section = document.getElementById('alert')
+        let text = `<div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Opss! sorry</strong> ${err}.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>`
+        alert_section.innerHTML =text
+    }
 }
 
 const display = async () => {
     const data = await category();
-    // console.log(data)
     let menuid = document.getElementById('menu-list')
-    let i = 0;
+    let zero = "0";
+    let i = 1;
     for(let info in data.data.news_category){
-        // console.log(data.data.news_category[info].category_name);
-        // menuid.innerHTML=`<p>${data.data.news_category[info].category_name}</p>`
-        const p = document.createElement("button");
-        p.classList.add('btn','fw-bold')
-        p.innerHTML =`${data.data.news_category[info].category_name}`
-        menuid.appendChild(p)
+        const category_btn = document.createElement("button");
+        category_btn.classList.add('btn','fw-bold')
+        category_btn.setAttribute('id',zero.concat(i));
+        category_btn.setAttribute('onclick', 'category_click(event)')
+        category_btn.innerHTML =`${data.data.news_category[info].category_name}`
+        menuid.appendChild(category_btn)
+        i++;
     }
+}
+
+function category_click(event){
+    alert(event.target.id)
 }
 display()
