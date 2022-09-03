@@ -25,6 +25,9 @@ const display = async () => {
         category_btn.setAttribute('id',zero.concat(i));
         category_btn.setAttribute('onclick', 'category_click(event)')
         category_btn.innerHTML =`${data.data.news_category[info].category_name}`
+        if(data.data.news_category[info].category_name == 'All News'){
+            category_btn.classList.add('btn-primary')
+        }
         menuid.appendChild(category_btn)
         i++;
     }
@@ -70,7 +73,7 @@ const allNewsDisplay = async () =>{
                   <img style="width: 40px;" class="rounded-circle" src="${data.author?.img}" alt="">
                 </div>
                 <div class="ps-2">
-                  <p class="m-0 fw-bolder">${data.author?.name}</p>
+                  <p class="m-0 fw-bolder">${data.author?.name =='' || data.author?.name == null? "Not Found":data.author?.name}</p>
                   <p class="m-0 text-muted">${data.author?.published_date?.slice(0,10)}</p>
                 </div>
               </div>
@@ -125,22 +128,24 @@ const newsdetails = async (event)=>{
     modalBody.innerHTML =`<div class="card mb-3">
     <img src="${data2[0].image_url}" class="card-img-top" alt="">
     <div class="card-body">
+
+    <div class="d-flex align-items-center ">
+      <div class="">
+        <img style="width: 40px;" class="rounded-circle" src="${data2[0].author.img}" alt="">
+      </div>
+      <div class="ps-2">
+        
+        <p class="m-0 fw-bolder">${data2[0].author?.name =='' || data2[0].author?.name == null? "Not Found":data2[0].author?.name}</p>
+        <p class="m-0 text-muted">${data2[0].author?.published_date}</p>
+      </div>
+    </div>
+
       <h5 class="card-title">${data2[0].title}</h5>
-      <p class="card-text">${data2[0].details}</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <p class="card-text" style="text-align: justify">${data2[0].details}</p>
     </div>
    </div>`
 }
 
 
-
-
 display()
 
-async function textfun(){
-    const data = await newsdisplay();
-    // console.log(data);    
-    data.sort(function(a, b){return b.total_view - a.total_view});
-    console.log(data);
-}
-textfun();
